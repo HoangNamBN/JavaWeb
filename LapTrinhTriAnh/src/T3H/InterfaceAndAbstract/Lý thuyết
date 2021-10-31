@@ -1,0 +1,9 @@
+1. Interface
+- ví dụ có 2 lớp là con chó và con mèo thì 2 con này động vật khác nhau nhưng có cùng hành động đi
+thì mình tạo ra 1 lớp động vật nhưng để là interface.
+- interface chỉ có phương thức, nhưng không có nội dung
+- lớp con sẽ thực hiện ghi đề methods của lớp cha.
+- khi interface thì mới có implements
+2. Abstract
+- khi sử dụng Abstract thì sử dụng extends
+3. Tính kế thừa

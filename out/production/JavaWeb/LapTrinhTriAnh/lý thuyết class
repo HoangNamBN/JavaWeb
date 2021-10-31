@@ -1,0 +1,172 @@
+1. Class (lớp)
+- là một khuôn mẫu cho các đối tượng
+- cách khai báo: class (tên lớp muốn đặt){ nội dung } ví dụ class Sinhvien(){ nội dung }
+- quy ước: tên lớp chữ cái đầu tiên viết hoa, các kí tự sau viết thường. Nếu tồn tại nhiều từ thì chữ cái đầu của mỗi từ viết hoa còn lại viết thường
+- ví dụ: class Hocsinh, HocsinhSinhvien
+- phần nội dung chính là thuộc tính của đối tượng, hàm khởi tạo (Contructor), phương thức (method)
+
+2. Thuộc tính của đối tượng
+- là các đặc điểm đặc trưng cho đối tượng đó ví dụ cái bàn là phải có 4 chân, và 1 mặt phẳng nằm ngang trên 4 chân đố
+- các khai báo:
+ + nếu muốn để các class khác có thể sử dụng thì khai báo public (kiểu dữ liệu) (tên thuộc tính) ví public int age
+ + ngược lại không muốn class sử dụng thì dùng private (kiểu dữ liệu) (tên thuộc tính) ví dụ private string idSinhvien
+
+3. hàm khởi tạo contruct
+- có 2 loại contruct hay dùng đó là có tham số và không có tham số
+- cách code hàm contruct có tham số
+ ví dụ mình có class Sinhvien gồm các thuộc tính là id, name thì hàm khởi tạo có tham số sẽ là:
+ public Sinhvien(int id, String name){
+    this.thuộc tính: có nghĩa là khẳng định lại thuộc tính id bên trái là thuộc tính của đối tượng, còn id bên phải thì là 1 biến khác
+    this.id = id;
+    this.name = name;
+ }
+ còn nếu mà khởi tạo 1 hàm contructor không tham số sẽ được khai báo như sau (java mặc định vẫn có hàm khởi tạo không tham số)
+ public Sinhvien(){
+
+ }
+ Note: 1 lớp có thể khai báo nhiều contructor tùy mục đích của mình ví dụ
+ public Sinhvien(int id){
+    this.id = id;
+ }
+ public Sinhvien(int id, String name){
+    this.id = id;
+    this.name = name;
+ }
+Note: chú ý khi gọi hàm contruct thì phải truyền tham số vào tùy từng contruct bạn muốn viết
+
+4. Phương thức (hành động, hành vi của đối tượng)
+- ví dụ phương thức (hành động) của 1 thằng sinh viên là làm bài tập, chơi , ... thì làm bài tập đó chính là 1 phương thức
+hay là ô tô có thể di chuyển thì di chuyển là hành vi của đối tượng ô tô
+- các khai báo phương thức như khai báo 1 fuctions ví dụ tạo ra 1 phương thức lấy tên sinh viên String getName(string name){ return name; }
+hay setName(String name){
+    name = name;
+}
+thì hàm get chính là hàm, là phương thức trả về giá trị của đối tượng
+hàm set(): là hàm cho phép đặt giá trị cho các thuộc tính, thiết lập giá trị
+
+5. đóng gói
+- hiểu đơn giản đóng gói là nguyên tắc đóng gói dữ liệu cụ thể là biến
+- thêm private hoặc public, ... vào trước biến như private int idSinhvien;
+- private: có nghĩa là chỉ cái lớp mình đang viết sử dụng được, còn các lớp khác không viết được
+ví dụ: Nam và Đức ở chung 1 nhà thì có 1 chiếc điện thoại bàn để nghe gọi chung
+thì chiếc điện thoại đó là public vì đối tượng Nam và đối tượng Đức đều sử dụng dược
+còn Nam và Đức ở chung nhưng mà mỗi người lại có 1 chiếc điện thoại của ai người đó dùng thì đó là private của ai người đó dùng
+
+6. Kế thừa
+- đơn giản là kế thừa những gì sẵn có của lớp cha, ví dụ con cái kế thừa những đức tính tốt của ba mẹ
+- cách khai báo: class (tên lớp con) extends (tên lớp cha){
+
+}
+
+6. Tính trừu tượng: thfi có 2 cách để đạt được đó là dùng interface và abstract
+6.1. Abstract
+- 1 phương thức được khai báo là abstract và không được triển khai thì được gọi là phương thức trừu tương
+- nếu mà muốn lớp cha có 1 phương thức cụ thể nhưng muốn được giải quyết bởi các lớp con thì khai báo phương thức đó ở dạng abstract ở lớp cha
+- ví dụ abtract void print();
+- ví dụ 2:
+// hàm cha Bike có dạng abstract và có 1 phươn thức trừu tượng
+abstract class Bike(){
+    abtract void run();
+}
+// hàm con Honda kế thừa lớp cha Bike()
+class Honda extends Bike{
+    void run(){
+        hiển thị running safely...
+    }
+    public static void main(String args[]){
+        Bike obj = new Honda();
+        obj.run();
+    }
+}
+// kết quả sẽ là runing safely...
+
+ví dụ tiếp theo
+lớp trừu tượng Shape
+abstract class Shape{
+    abstract void draw();
+}
+
+class Rectangle extends Shape{
+void draw(){
+        System.out.println("Ve hinh chu nhat");
+    }
+}
+
+class Circle1 extends Shape{
+void draw(){
+        System.out.println("Ve hinh tron");
+    }
+}
+class TestAbstraction1{
+public static void main(String args[]) {
+   Shape s=new Circle1();
+   s.draw();
+   }
+}
+--> kết quả sẽ là Ve hinh tron
+6.2. interface
+- Hàm interface là chỉ gồm các phương thức trừu tượng hay nói cách khác interface là public, static, và final theo mặc định và các phương thức public, abstract
+- interface không phải 1 lớp nhưng được viết giống 1 lớp
+- cùng 1 tên phương thức nhưng không giống nhau, không dùng chung thì khai báo interface
+- ví dụ và interfacce: printable interface chỉ có 1 phương thức, trình triển của nó được cung cấp bởi lớp A
+// cách viết giống khai báo lớp
+interface printable{
+    void print();
+}
+class A inplements printable{
+    public void print(){
+        System.out.println("Hello");
+    }
+    public static void main(String args[]){
+        gọi 1 đối tượng lớp A
+        A a = new A();
+        a.print();
+    }
+}
+
+7. override(): ghi đè phương thức
+- để có override() thì phải có chung kiểu trả về, tên phương thức, và danh sách tham số
+- override chỉ xảy ra giữa các lớp có quan hệ kế thừa
+- sử dụng từ supper để gọi phương thức được override ở lớp cha tại phương thức override ở lớp con
+- 1 phương thức final và static không thể được override
+
+ví dụ: class cha CBird được khai báo như sau có 1 phương thức getInfo
+class CBird{
+    public void getInfo(){
+        system.out.print("Hiển thị ra thông tin của lớp cha");
+    }
+}
+class CParrot lớp con kế thừa lớp cha CBird được khai báo như sau:
+public class CParrot extends CBird{
+    thấy 1 điều là cũng có hàm getInfo giống y hệt lớp cha vì vậy để muốn ghi đè thì thêm từ khóa @override
+    public void getInfo(){
+        System.out.println("Parrot");
+        // có tách dụng gọi đến hàm getInfo của lớp cha CBird
+        super.getInfo();
+    }
+    public static void main(String [] args){
+    		CBird obj = new CParrot();
+    		obj.getInfo();
+    	}
+}
+
+hay ví dụ sau
+class Animal {
+   public void displayInfo() {
+      System.out.println("I am an animal.");
+   }
+}
+
+class Dog extends Animal {
+   @Override
+   public void displayInfo() {
+      System.out.println("I am a dog.");
+   }
+}
+
+class Main {
+   public static void main(String[] args) {
+      Dog d1 = new Dog();
+      d1.displayInfo();
+   }
+}
