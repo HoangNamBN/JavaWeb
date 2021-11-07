@@ -28,11 +28,11 @@ public class RemoveElement {
                 numList.add(numberlist.get(i));
             }
         }
-//        System.out.println();
-//        System.out.print("List sau khi xóa phần tử trùng nhau là: ");
-//        for (int i = 0; i < numList.size(); i++) {
-//            System.out.print(numList.get(i) + " ");
-//        }
+        System.out.println();
+        System.out.print("List sau khi xóa phần tử trùng nhau là: ");
+        for (int i = 0; i < numList.size(); i++) {
+            System.out.print(numList.get(i) + " ");
+        }
 
         // Cách hiển thị khác là dùng foreach()
         System.out.println();
