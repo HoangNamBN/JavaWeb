@@ -10,6 +10,14 @@ class Person {
     protected String adrress;
     protected String ngaysinh;
 
+    public Person(){
+
+    }
+
+    public Person(String name){
+        this.name = name;
+    }
+
     public void intputPerson() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap Ten :");
